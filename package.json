@@ -1,12 +1,24 @@
 {
+  "name": "monpigeonnier-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Application Electron pour la gestion des pigeons colombophiles",
+  "workspaces": [
+    "Colombophile-Pedigree/artifacts/colombophile-pedigree",
+    "Colombophile-Pedigree/artifacts/api-server"
+  ],
+  "scripts": {
+    "dev": "pnpm --filter @workspace/colombophile-pedigree run electron:dev",
+    "build": "pnpm --filter @workspace/colombophile-pedigree run build",
+    "build:mac": "pnpm --filter @workspace/colombophile-pedigree run build:mac",
+    "build:win": "pnpm --filter @workspace/colombophile-pedigree run build:exe",
+    "test": "echo 'No tests configured yet'",
+    "typecheck": "pnpm --filter @workspace/colombophile-pedigree run typecheck && pnpm --filter @workspace/api-server run typecheck"
+  },
   "devDependencies": {
-    "electron": "^41.1.1",
+    "electron": "^31.0.1",
     "electron-builder": "^26.8.1"
   },
-  "dependencies": {
-    "@tailwindcss/vite": "^4.2.2",
-    "tailwindcss": "^4.2.2",
-    "tailwindcss-animate": "^1.0.7",
-    "vaul": "^1.1.2"
-  }
+  "dependencies": {}
 }
